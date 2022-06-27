@@ -50,6 +50,7 @@ h1
     text-transform: none;
     color:white;
     font-size: 24px;
+    position:relative;
 }
 
 .faqAnswer
@@ -63,3 +64,34 @@ h1
 {
     display: none;
 }
+
+.svg-icon
+{
+    width:26px;
+    position:absolute;
+    right:15px;
+    top: 34px;
+    fill:white;
+}
+.svgClosed
+{
+    transform: translateY(-50%) rotate(-45deg);
+}
+.svgOpened
+{
+    transform: translateY(-50%);
+}
+.faq-card .svg-icon-thin-x {
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 1em;
+    width: 1em;
+    fill: #fff;
+    overflow: hidden;
+  }

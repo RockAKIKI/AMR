@@ -1,0 +1,65 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f3f3;
+    color: #333;
+    font-size: 16px;
+    direction: ltr;
+}
+
+h1
+{
+    font-size: 3.125em;
+    line-height: 1.1;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.faq
+{
+    background-color: black;
+    margin: 0;
+    color:white;
+    padding: 70px 45px;
+    border-bottom: 8px solid #222;
+}
+
+.faqList
+{
+    list-style-type: none; 
+    padding: 0;
+    width: 75%;
+    margin: 2em auto;
+}
+
+.faqList li
+{
+    margin-bottom:8px;
+}
+.faqList button
+{
+    display: block;
+    padding: .8em 2.2em .8em 1.2em;
+    margin-bottom: 1px;
+    font-weight: 400;
+    width: 100%;
+    border: 0;
+    text-align: left;
+    background: #303030;
+    cursor: pointer;
+    text-transform: none;
+    color:white;
+    font-size: 24px;
+}
+
+.faqAnswer
+{
+    display: block;
+    background: #303030;
+    font-size: 24px;
+    padding: .8em 2.2em .8em 1.2em;
+}
+.closed
+{
+    display: none;
+}

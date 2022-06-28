@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif bold;
+  font-size: 100%
+}
+
+@media screen and (max-width: 64em) {
+  header {
+    font-size: 90%;
+  }
+}
+
+@media screen and (max-width: 50em) {
+  header {
+    font-size: 75%;
+  }
+}
+
+@media screen and (max-width: 30em) {
+  header {
+    font-size: 40%;
+  }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2px 50px;
+  z-index: 100;
+  background: linear-gradient(#000, #000, transparent);
+}
+
+header .logo img {
+  max-width: 113px;
+}
+
+.navigation {
+  display: flex;
+  margin-left: 15px;
+}
+
+.navigation li {
+  list-style: none;
+  margin: 0 10px;
+}
+
+.navigation li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.nav__black {
+  background-color: #111;
+}
+
+.navigation li a:hover {
+  color: rgb(143, 143, 143);
+}
+
+.searchBar {
+  position: relative;
+  margin-left: auto;
+  width: 300px;
+  height: 40px;
+}
+
+.searchBar input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  float: right;
+  margin: 0 10px 0 0;
+  color: #000;
+  background: transparent;
+  border: 1px solid #fff;
+  outline: none;
+  border-radius: 4px;
+  padding: 0 10px 0 45px;
+}
+
+.searchBar input::placeholder {
+  color: #fff;
+}
+
+.searchBar .fa-magnifying-glass {
+  position: absolute;
+  top: 50%;
+  margin-left: 10px;
+  transform: translateY(-50%);
+  padding-right: 10px;
+  color: #fff;
+  border-right: 1px solid #fff;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+@media screen and (max-width: 50em) {
+  .banner {
+    min-height: 75vh;
+  }
+}
+
+.banner .bgAnnexe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 550px;
+}
+
+.titre {
+  max-width: 350px;
+  z-index: 10;
+}
+
+@media screen and (max-width: 50em) {
+  .titre {
+    max-width: 75%;
+  }
+}
+
+.banner .content h4 {
+  color: white;
+  font-weight: 500;
+}
+
+.banner .content h4 span {
+  padding: 0 10px;
+  border-right: 1px solid #fff;
+}
+
+.banner .content h4 span:first-child {
+  padding-left: 0;
+}
+
+.banner .content h4 span:last-child {
+  border-right: none;
+}
+
+.buttons {
+  display: flex;
+  cursor: pointer;
+  width: 350px;
+  text-align:start;
+  padding-top: 20px;
+}
+
+.playButton a {
+  margin-right: 25px;
+  background: #fff;
+  color: #000;
+  padding: 10px 30px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.playButton a i {
+  margin-right: 10px;
+}
+
+.playButton a:hover {
+  background: rgb(255, 255, 255, 0.8);
+}
+
+.btnInfo a {
+  margin-right: 20px;
+  background: rgb(163, 163, 163, 0.9);
+  color: #000;
+  padding: 10px 30px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.btnInfo a i {
+  margin-right: 10px;
+}
+
+.btnInfo a:hover {
+  background: rgb(163, 163, 163, 0.7);
+}
+
+p {
+  width:350px;
+  font-size: 20px;
+  color: white;
+}
+
+@media screen and (max-width: 50em) {
+  p {
+    font-size: 95%;
+  }
+}
+
+@media screen and (max-width: 30em) {
+  p {
+    font-size: 80%;
+  }
+}
+
+body {
+  color: #fff;
+  background: #111;
+}
+
+.rowClass {
+  width: 100%;
+  object-fit: contain;
+  max-height: 100px;
+  margin-right: 10px;
+  transition: transform 200ms;
+  border-radius: 2px;
+}
+
+.rowClasses {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px;
+}
+
+.rowClass:hover {
+  transform: scale(1.40);
+  border-radius: 2px;
+}
+
+.rowClasses::-webkit-scrollbar {
+  display: none;
+}
+
+h2 {
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 50em) {
+  h2 {
+    font-size: 75%;
+  }
+}

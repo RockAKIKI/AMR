@@ -14,6 +14,7 @@ const cors = require('cors');
 
 const CRUDController = require('./controllers/CRUDController.js');
 const LoginController = require('./controllers/LoginController.js');
+const FilmsController = require('./controllers/FilmsController.js');
 
 // //////////////////////////////////////////////////////
 // CHAMPS
@@ -49,7 +50,7 @@ app.get('/', (request, response)=>
 });
 
 // -----------------------------------------------------
-// Films
+// Films (CRUDController)
 
 app.get('/films',(request, response)=>
 {
@@ -76,8 +77,16 @@ app.delete('/films/:id',(request,response) =>
     response.json(CRUDController.DeleteOne(pathFilms,request.params.id));
 });
 
+//------------------------------------------------------
+// Films (spécifique)
+
+app.get('/films/category/:nom', (request, response)=>
+{
+    response.json(FilmsController.FilmsByCategory(pathFilms,request.params.nom));
+});
+
 // -----------------------------------------------------
-// Utilisateurs
+// Utilisateurs (CRUDController)
 
 app.get('/utilisateurs',(request, response)=>
 {

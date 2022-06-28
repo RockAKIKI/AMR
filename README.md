@@ -134,3 +134,13 @@ http://localhost:3000/login/?email=nom@prenom.xxx&passe=1234
 ```
 
 Lorsque le serveur Node est lancé, l'API est disponible. Dans le dossier `Front Vanilla / Login`, lancer la page HTML dans le navigateur ; le formulaire permet de tester l'identification (utilisateur inconnu, identifié, banni).
+
+## Requêtes films spécifiques
+
+Les films sont explorables par catégorie, avec le contrôleur `FilmsController`.
+
+La requête prend cette forme, par exemple en cherchant la catégorie "voyage" :
+```
+http://localhost:3000/films/category/voyage
+```
+

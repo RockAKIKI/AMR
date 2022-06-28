@@ -133,3 +133,4 @@ La requête utilisée a le format suivant :
 http://localhost:3000/login/?email=nom@prenom.xxx&passe=1234
 ```
 
+Lorsque le serveur Node est lancé, l'API est disponible. Dans le dossier `Front Vanilla / Login`, lancer la page HTML dans le navigateur ; le formulaire permet de tester l'identification (utilisateur inconnu, identifié, banni).

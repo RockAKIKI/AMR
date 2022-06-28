@@ -73,6 +73,15 @@ app.delete('/films/:id',(request,response) =>
     response.json(filmsController.DeleteOne(pathFilms,request.params.id));
 });
 
+// -----------------------------------------------------
+// Erreur
+
+app.use(function(req, res, next) 
+{
+    res.status(404);
+    res.send('404: route inconnue');
+});
+
 // //////////////////////////////////////////////////////
 // DEMARRAGE
 // //////////////////////////////////////////////////////

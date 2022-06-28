@@ -1,1 +1,4 @@
-[{"id":0,"nom":"Nom","prenom":"Prénom","email":"nom@prenom.xxx","passe":"1234","banni":false}]
+[
+    {"id":0,"nom":"Nom","prenom":"Prénom","email":"nom@prenom.xxx","passe":"1234","banni":false},
+    {"id":1,"nom":"Dupont","prenom":"Samir","email":"samir@dupont.net","passe":"0000","banni":true}
+]

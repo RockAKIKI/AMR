@@ -30,6 +30,10 @@ function Login(path, request)
     {
         return DataOK("Pas d'utilisateur", null);
     }
+    else if(user.banni)
+    {
+        return DataOK("Utilisateur banni", null);
+    }
     else
     {
         return DataOK("Utilisateur connecté", {nom:user.nom, prenom:user.prenom});

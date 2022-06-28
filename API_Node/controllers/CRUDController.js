@@ -1,3 +1,13 @@
+/*
+    CRUD simple
+
+    A faire : 
+        - tester les entrées utilisateur,
+        - tester les résultats (doublon ? id identique ? pas de contenu ? etc.).
+    
+    Si le code devient trop spécifique, créer un contrôleur spécifique.
+*/
+
 // //////////////////////////////////////////////////////
 // LIBRAIRIES
 // //////////////////////////////////////////////////////
@@ -13,13 +23,11 @@ const {FileLoad, FileSave} = require('../helpers/FileCaller.js');
 function GetAll(path)
 {
     const list = FileLoad(path);
-    return DataOK(`${list.length} film(s)`, list);
+    return DataOK(`${list.length} contenu(s)`, list);
 }
 
 function GetOne(path, id)
 {
-    // A FAIRE : tests des entrées utilisateur
-
     const intID = parseInt(id);
 
     const liste = FileLoad(path);
@@ -42,10 +50,6 @@ function PostOne(path, request)
 
     const nextId = NextMaxID(liste);
 
-    // A FAIRE :
-    // - tester entrées utilisateur
-    // - tester résultat : non doublon d'un existant, id ok...
-
     const nextItem = {...request.body, ...{id:nextId}}
 
     liste.push(nextItem);
@@ -57,8 +61,6 @@ function PostOne(path, request)
 
 function PutOne(path, request)
 {
-    // A FAIRE : tests des entrées utilisateur
-
     const id = parseInt(request.params.id);
 
     const itemUpdated = {...request.body, ...{id:id}};
@@ -84,15 +86,11 @@ function PutOne(path, request)
 
 function DeleteOne(path, id)
 {
-    // A FAIRE : tests des entrées utilisateur
-
     const intID = parseInt(id);
 
     let liste = FileLoad(path);
 
     const itemDeleted = liste.find(item => item.id == intID);
-
-    // A FAIRE : si aucun item trouvé ?
 
     liste = liste.filter(item => item.id != intID);
 

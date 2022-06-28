@@ -12,7 +12,8 @@ const cors = require('cors');
 
 // Middlewares
 
-const filmsController = require('./controllers/filmsController.js');
+const CRUDController = require('./controllers/CRUDController.js');
+const LoginController = require('./controllers/LoginController.js');
 
 // //////////////////////////////////////////////////////
 // CHAMPS
@@ -21,7 +22,9 @@ const filmsController = require('./controllers/filmsController.js');
 const app = express();
 const port = 3000;
 
-const pathFilms = './data/films.json';
+const pathRoot = './data';
+const pathFilms = pathRoot + '/films.json';
+const pathUtilisateurs = pathRoot + '/utilisateurs.json';
 
 // //////////////////////////////////////////////////////
 // MIDDLEWARES Injection de dépendances
@@ -50,27 +53,63 @@ app.get('/', (request, response)=>
 
 app.get('/films',(request, response)=>
 {
-    response.json(filmsController.GetAll(pathFilms));
+    response.json(CRUDController.GetAll(pathFilms));
 });
 
 app.get('/films/:id',(request, response)=>
 {
-    response.json(filmsController.GetOne(pathFilms, request.params.id));
+    response.json(CRUDController.GetOne(pathFilms, request.params.id));
 });
 
 app.post('/films',(request, response) =>
 {
-    response.json(filmsController.PostOne(pathFilms, request));
+    response.json(CRUDController.PostOne(pathFilms, request));
 });
 
 app.put('/films/:id',(request, response) =>
 {
-    response.json(filmsController.PutOne(pathFilms,request));
+    response.json(CRUDController.PutOne(pathFilms,request));
 });
 
 app.delete('/films/:id',(request,response) =>
 {
-    response.json(filmsController.DeleteOne(pathFilms,request.params.id));
+    response.json(CRUDController.DeleteOne(pathFilms,request.params.id));
+});
+
+// -----------------------------------------------------
+// Utilisateurs
+
+app.get('/utilisateurs',(request, response)=>
+{
+    response.json(CRUDController.GetAll(pathUtilisateurs));
+});
+
+app.get('/utilisateurs/:id',(request, response)=>
+{
+    response.json(CRUDController.GetOne(pathUtilisateurs, request.params.id));
+});
+
+app.post('/utilisateurs',(request, response) =>
+{
+    response.json(CRUDController.PostOne(pathUtilisateurs, request));
+});
+
+app.put('/utilisateurs/:id',(request, response) =>
+{
+    response.json(CRUDController.PutOne(pathUtilisateurs,request));
+});
+
+app.delete('/utilisateurs/:id',(request,response) =>
+{
+    response.json(CRUDController.DeleteOne(pathUtilisateurs,request.params.id));
+});
+
+// -----------------------------------------------------
+// Login
+
+app.get('/login',(request, response)=>
+{
+    response.json(LoginController.Login(pathUtilisateurs,request));
 });
 
 // -----------------------------------------------------
@@ -88,7 +127,5 @@ app.use(function(req, res, next)
 
 app.listen(port, ()=>
 {
-    // A FAIRE : passer en HTTPS
-
     console.log(`API démarrée sur http://localhost:${port}`);
 });

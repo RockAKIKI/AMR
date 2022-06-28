@@ -1,0 +1,85 @@
+// //////////////////////////////////////////////////////
+// LIBRAIRIES
+// //////////////////////////////////////////////////////
+
+// Modules
+
+const express = require("express");
+const bodyParser = require("body-parser");
+const morgan = require('morgan'); 
+const favicon = require('serve-favicon'); 
+const cors = require('cors');
+
+// Middlewares
+
+const filmsController = require('./controllers/filmsController.js');
+
+// //////////////////////////////////////////////////////
+// CHAMPS
+// //////////////////////////////////////////////////////
+
+const app = express();
+const port = 3000;
+
+const pathFilms = './data/films.json';
+
+// //////////////////////////////////////////////////////
+// MIDDLEWARES Injection de dépendances
+// //////////////////////////////////////////////////////
+
+app
+    .use(cors())
+    .use(favicon(__dirname + '/favicon.ico')) 
+    .use(morgan('dev'))
+    .use(bodyParser.json());
+
+// //////////////////////////////////////////////////////
+// ROUTES
+// //////////////////////////////////////////////////////
+
+// -----------------------------------------------------
+// Racine
+
+app.get('/', (request, response)=>
+{
+    response.send('Racine de l\'API.');
+});
+
+// -----------------------------------------------------
+// Films
+
+app.get('/films',(request, response)=>
+{
+    response.json(filmsController.GetAll(pathFilms));
+});
+
+app.get('/films/:id',(request, response)=>
+{
+    response.json(filmsController.GetOne(pathFilms, request.params.id));
+});
+
+app.post('/films',(request, response) =>
+{
+    response.json(filmsController.PostOne(pathFilms, request));
+});
+
+app.put('/films/:id',(request, response) =>
+{
+    response.json(filmsController.PutOne(pathFilms,request));
+});
+
+app.delete('/films/:id',(request,response) =>
+{
+    response.json(filmsController.DeleteOne(pathFilms,request.params.id));
+});
+
+// //////////////////////////////////////////////////////
+// DEMARRAGE
+// //////////////////////////////////////////////////////
+
+app.listen(port, ()=>
+{
+    // A FAIRE : passer en HTTPS
+
+    console.log(`API démarrée sur http://localhost:${port}`);
+});
